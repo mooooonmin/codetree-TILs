@@ -1,23 +1,34 @@
-# 격자의 크기 입력
 n = int(input())
+cnt = 1
+answer = [[0 for _ in range(n)] for _ in range(n)]
 
-# 격자 초기화
-grid = [[0] * n for _ in range(n)]
-
-# 오른쪽 아래에서부터 시작하는 숫자
-num = n * n
-
-# 짝수 행일 때의 숫자 채우기
-for i in range(n):
-    if i % 2 == 0:
-        for j in range(n-1, -1, -1):
-            grid[j][i] = num
-            num -= 1
-    else:
+if n % 2 != 0:
+    for i in range(n - 1, -1, -1):
+        for j in range(n - 1, -1, -1):
+            if i % 2 == 0:
+                answer[j][i] = cnt
+                cnt += 1
         for j in range(n):
-            grid[j][i] = num
-            num -= 1
+            if i % 2 != 0:
+                answer[j][i] = cnt
+                cnt += 1
 
-# 결과 출력
-for row in grid:
-    print(*row)
+    for i in range(n):
+        for j in range(n):
+            print(answer[i][j], end=' ')
+        print()
+
+else:
+    for k in range(n - 1, -1, -1):
+        for l in range(n - 1, -1, -1):
+            if k % 2 != 0:
+                answer[l][k] = cnt
+                cnt += 1
+        for l in range(n):
+            if k % 2 == 0:
+                answer[l][k] = cnt
+                cnt += 1
+    for i in range(n):
+        for j in range(n):
+            print(answer[i][j], end=' ')
+        print()
