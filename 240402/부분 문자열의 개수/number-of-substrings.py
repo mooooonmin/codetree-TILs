@@ -5,4 +5,9 @@ A = input()
 B = input()
 
 # 문자열 B가 문자열 A의 부분 문자열로 등장하는 횟수를 구하여 출력
-print(A.count(B))
+count = 0
+for i in range(len(A) - 1):
+    if A[i:i+2] == B:
+        count += 1
+
+print(count)
