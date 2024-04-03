@@ -1,17 +1,19 @@
 a = input()
 b = input()
 
-count = 0
-for i in range(len(a)):
-    c = a[i:] + a[:i]
-    if c == b:
-        count += i
-    else:
-        count += 0
+cnt = 0
 
-if count >0:
-    answer = count
-else:
-    answer = -1
+while a != b :
 
-print(answer)
+    a = a[-1] + a[:-1]
+
+    cnt += 1
+
+    if cnt > len(a):
+        
+        break
+
+if cnt > len(a) :
+    print(-1)
+else :
+    print(cnt)
