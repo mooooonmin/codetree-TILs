@@ -1,10 +1,17 @@
-def min_shift(a, b):
-    for i in range(len(a)):
-        if a[i:] + a[:i] == b:
-            return i
-    return -1
+a = input()
+b = input()
 
-A = input()
-B = input()
+count = 0
+for i in range(len(a)):
+    c = a[i:] + a[:i]
+    if c == b:
+        count += i
+    else:
+        count += 0
 
-print(min_shift(A, B))
+if count >0:
+    answer = count
+else:
+    answer = -1
+
+print(answer)
