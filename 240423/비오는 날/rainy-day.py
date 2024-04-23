@@ -1,23 +1,20 @@
-class WeatherData:
-    def __init__(self, date, day, weather):
+class Forecast():
+    def __init__(self, date, weekday, whether):
         self.date = date
-        self.day = day
-        self.weather = weather
+        self.weekday = weekday
+        self.whether = whether
 
-def main():
-    n = int(input())
-    data_list = []
+    def __repr__(self):
+        return " ".join([self.date, self.weekday, self.whether])
 
-    # 입력 받기
-    for _ in range(n):
-        date, day, weather = input().split()
-        data_list.append(WeatherData(date, day, weather))
+n = int(input())
+ans = Forecast('2101-12-31', '', '')
 
-    # 비가 오는 날 찾기
-    for data in data_list:
-        if data.weather == "Rain":
-            print(data.date, data.day, data.weather)
-            break
+for _ in range(n):
+    day, weekday, whether = input().split()
+    f = Forecast(day, weekday, whether)
+    if whether == 'Rain':
+        if ans.date > f.date:
+            ans = f
 
-if __name__ == "__main__":
-    main()
+print(ans)
