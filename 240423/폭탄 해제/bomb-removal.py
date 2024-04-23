@@ -1,22 +1,17 @@
-class Information:
-    def __init__(self, code, color, second):
-        self.code = code
-        self.color = color
-        self.second = second
+# 클래스 선언
+class Bomb:
+	def __init__(self, unlock_code, linear_color, time):
+		self.unlock_code = unlock_code
+		self.linear_color = linear_color
+		self.time = time
 
-    def print_info(self):
-        print("code :", self.code)
-        print("color :", self.color)
-        print("second :", self.second)
+# 변수 선언 및 입력
+u_code, l_color, time = tuple(input().split())
 
-def main():
-    input_data = input().split()
-    code = input_data[0]
-    color = input_data[1]
-    second = int(input_data[2])
+# 객체 생성
+b = Bomb(u_code, l_color, int(time))
 
-    info = Information(code, color, second)
-    info.print_info()
-
-if __name__ == "__main__":
-    main()
+# 출력
+print(f"code : {b.unlock_code}")
+print(f"color : {b.linear_color}")
+print(f"second : {b.time}")
